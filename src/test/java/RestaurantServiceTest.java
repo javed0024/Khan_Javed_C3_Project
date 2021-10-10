@@ -24,8 +24,6 @@ class RestaurantServiceTest {
         assertEquals(service.findRestaurantByName("Amelie's cafe").getName(), restaurant.getName());
     }
 
-    //You may watch the video by Muthukumaran on how to write exceptions in Course 3: Testing and Version control: Optional content
-
     //Implemented this Unit Test Case
     @Test
     public void searching_for_non_existing_restaurant_should_throw_exception() throws restaurantNotFoundException {
@@ -49,7 +47,6 @@ class RestaurantServiceTest {
     public void removing_restaurant_that_does_not_exist_should_throw_exception() throws restaurantNotFoundException {
         restaurant.addToMenu("Sweet corn soup", 119);
         restaurant.addToMenu("Vegetable lasagne", 269);
-
         assertThrows(restaurantNotFoundException.class, () -> service.removeRestaurant("Pantry d'or"));
     }
 

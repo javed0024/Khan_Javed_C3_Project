@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -69,6 +71,18 @@ class RestaurantTest {
 
         assertThrows(itemNotFoundException.class,
                 () -> restaurant.removeFromMenu("French fries"));
+    }
+
+    //Implemented the Test Case using TDD approach
+    @Test
+    public void display_order_value_should_return_total_order_value_for_a_list_of_selected_items()
+    {
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        List<String> itemsNameList = new ArrayList<>();
+        itemsNameList.add("Sweet corn soup");
+        itemsNameList.add("Vegetable lasagne");
+        assertEquals(388, restaurant.displayOrderValue(itemsNameList));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
