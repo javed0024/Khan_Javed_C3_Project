@@ -66,4 +66,13 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+    //Implemented displayOrderValue functionality using TDD Approach
+    public int displayOrderValue(List <String> itemsNameList){
+        int totalOrderValue=0;
+        for(String itemName: itemsNameList) {
+            totalOrderValue+=findItemByName(itemName).getPrice();
+        }
+        return totalOrderValue;
+    }
 }
